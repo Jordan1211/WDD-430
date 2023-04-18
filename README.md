@@ -4,13 +4,13 @@
 
 ## Important Commands
  To deploy a server use:
- 'ng new <app name> --no-strict'
+ `ng new <app name> --no-strict`
 
  To run a server use:
- 'ng serve'
+ `ng serve`
 
  NgModule is a good thing to add to app.modul.ts
 
- For bootstrap use 'npm install --save bootstrap@3' under the project folder. Then update the angular.json file under "styles": node_modules/bootstrap/dist/css/bootstrap.min.css
+ For bootstrap use `npm install --save bootstrap@3` under the project folder. Then update the angular.json file under "styles": node_modules/bootstrap/dist/css/bootstrap.min.css
 
  Clear out App Components under app.component
