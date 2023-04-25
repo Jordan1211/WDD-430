@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <h2>Assignment: Data & Event Binding (Problem)</h2>
+        <label>Username</label>
+        <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="username">
+        <button
+            class="btn btn-secondary"
+            [disabled]="username === ''"
+            (click)="username = ''">Reset username</button>
+        <h4>Current Username = {{ username }}</h4>
+    </div>
+</div>

@@ -14,3 +14,6 @@
  For bootstrap use `npm install --save bootstrap@3` under the project folder. Then update the angular.json file under "styles": node_modules/bootstrap/dist/css/bootstrap.min.css
 
  Clear out App Components under app.component
+
+ To create a new component you can use:
+ `ng generate component [name]` or `ng g c [name]`
