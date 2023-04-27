@@ -1,6 +1,6 @@
 # Wdd430FirstApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6. This is so I can follow along with tutorials and have a place to stack all my knowledge in one.
 
 ## Development server
 
