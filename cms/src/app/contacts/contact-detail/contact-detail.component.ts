@@ -8,9 +8,6 @@ import { Contact } from '../contact.model';
 })
 
 export class ContactDetailComponent {
-
   @Input() contact: Contact;
 
-//   contact= 
-//     new Contact( 1, 'Lola Gershum', 'lgw@gmail.com', '801-123-5589' , '../../assets/images/barzeer.jpg', [])
 }
