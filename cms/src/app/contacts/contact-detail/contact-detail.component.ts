@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Contact } from '../contact.model';
 
 @Component({
@@ -8,6 +8,9 @@ import { Contact } from '../contact.model';
 })
 
 export class ContactDetailComponent {
-  contact= 
-    new Contact( 1, 'Lola Gershum', 'lgw@gmail.com', '801-123-5589' , '../../assets/images/barzeer.jpg', [])
+
+  @Input() contact: Contact;
+
+//   contact= 
+//     new Contact( 1, 'Lola Gershum', 'lgw@gmail.com', '801-123-5589' , '../../assets/images/barzeer.jpg', [])
 }
