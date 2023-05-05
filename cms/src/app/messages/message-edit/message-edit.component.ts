@@ -20,11 +20,8 @@ export class MessageEditComponent {
   }
 
   onClear() {
-    let messageSubject = this.subjectRef.nativeElement.value;
-    let messageText = this.msgTextRef.nativeElement.value;
-
-    messageSubject = ' ';
-    messageText = ' ';
+    this.subjectRef.nativeElement.value = '';
+    this.msgTextRef.nativeElement.value = '';
 
   }
 }
