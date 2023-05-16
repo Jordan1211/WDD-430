@@ -1,24 +1,25 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Contact } from '../contact.model';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'cms-contact-list',
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
 })
-export class ContactListComponent {
-  @Output() selectedContactEvent = new EventEmitter<Contact>();
-  contacts: Contact[] = [
-    new Contact( 1, 'Lola Gershum', 'lgw@gmail.com', '801-123-5589' , '../../assets/images/barzeer.jpg', []),
-    new Contact( 2, 'June Johanson', 'jjo@gmail.com', '801-123-7849' , '../../assets/images/jacksonk.jpg', [])  
-  ];
 
-  onSelected(contact: Contact) {
-    this.selectedContactEvent.emit(contact);
-  }
-  construction() {}
+@Injectable()
+export class ContactListComponent {
+  contacts: Contact[] = [];
+
+  constructor(private contactService: ContactService) {}
 
   ngOnInit() {
+    this.contacts = this.contactService.getContacts();
   }
+
+  onSelected(contact: Contact[]) {
+    this.contactService.contactSelectedEvent.emit(contact);
+ }
 
 }
