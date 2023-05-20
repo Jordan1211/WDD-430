@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit} from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -9,7 +9,7 @@ import { ContactService } from '../contact.service';
 })
 
 @Injectable()
-export class ContactListComponent {
+export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
 
   constructor(private contactService: ContactService) {}

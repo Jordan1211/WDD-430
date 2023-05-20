@@ -277,5 +277,13 @@ export const MOCKCONTACTS: Contact[] = [
       group: null
     }
   ]
-  }
+  },
+  {
+    id: '99',
+    name: 'Jordan Gresham',
+    email: 'jgre@byui.edu',
+    phone: '801-213-1234',
+    imageUrl: '../../assets/images/gresham.jpg',
+    group: null
+  },
 ];

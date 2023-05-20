@@ -1,6 +1,6 @@
-import {Document} from './document.model';
+import { Document } from './document.model';
 
-export const MOCKDOCUMENTS: any[] = [
+export const MOCKDOCUMENTS: Document[] = [
   {
     id: '1',
     name: 'CIT 425 - Data Warehousing',
