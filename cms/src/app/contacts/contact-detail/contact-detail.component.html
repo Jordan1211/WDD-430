@@ -8,8 +8,8 @@
                         *ngIf="contact?.imageUrl">
                 </div>
                 <div class="pull-right btn-toolbar">
-                    <a class="btn btn-primary">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
+                    <a class="btn btn-primary" style="cursor: pointer;" (click)="onEditContact()" >Edit</a>
+                    <a class="btn btn-danger" style="cursor: pointer;" (click)="onDelete()">Delete</a>
                 </div>
             </div>
         <div class="panel-body">
