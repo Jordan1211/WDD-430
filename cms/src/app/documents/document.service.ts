@@ -30,7 +30,6 @@ export class DocumentService {
    getMaxId(): number {
 
     let maxId = 0;
-
     this.documents.forEach(document => {
       if (parseInt(document.id) > maxId) {
         maxId = parseInt(document.id)
@@ -41,19 +40,18 @@ export class DocumentService {
   }
   
   addDocument(newDocument: Document) {
-    if (!document) {
+    if (!newDocument) {
       return;
    }
 
     this.maxDocumentId++
-    let newDocumentId = parseInt(newDocument.id)
-    newDocumentId = this.maxDocumentId
+    newDocument.id = String(this.maxDocumentId)
     this.documents.push(newDocument)
     this.documentListChangedEvent.next(this.documents.slice());
   }
 
   updateDocument(originalDocument: Document, newDocument: Document) {
-    if (!document) {
+    if (!originalDocument || !newDocument) {
       return;
    }
 
