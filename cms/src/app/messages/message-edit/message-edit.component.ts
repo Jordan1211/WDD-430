@@ -10,7 +10,7 @@ import { MessageService } from '../message.service';
 
 @Injectable()
 export class MessageEditComponent implements OnInit{
-  currentSender: string = '99'
+  currentSender: string = '19'
   @ViewChild('subject', {static: true}) subjectRef: ElementRef;
   @ViewChild('msgText', {static: true}) msgTextRef: ElementRef;
   @Output() addMessageEvent = new EventEmitter<Message>();
@@ -23,7 +23,7 @@ export class MessageEditComponent implements OnInit{
   onSendMessage() {
     const messageSubject = this.subjectRef.nativeElement.value;
     const messageText = this.msgTextRef.nativeElement.value;
-    const newMessage = new Message ('1234', messageSubject, messageText, this.currentSender);
+    const newMessage = new Message ('19', messageSubject, messageText, this.currentSender);
     this.messageService.addMessage(newMessage);
   }
 
