@@ -1,6 +1,7 @@
 import { Component, ViewChild, Output, ElementRef, EventEmitter, OnInit, Injectable } from '@angular/core';
 import { Message } from '../message.model';
 import { MessageService } from '../message.service';
+import { Contact } from 'src/app/contacts/contact.model';
 
 @Component({
   selector: 'cms-message-edit',
@@ -10,7 +11,7 @@ import { MessageService } from '../message.service';
 
 @Injectable()
 export class MessageEditComponent implements OnInit{
-  currentSender: string = '19'
+  currentSender = '648a099ce6047e4a841ad5c7';
   @ViewChild('subject', {static: true}) subjectRef: ElementRef;
   @ViewChild('msgText', {static: true}) msgTextRef: ElementRef;
   @Output() addMessageEvent = new EventEmitter<Message>();

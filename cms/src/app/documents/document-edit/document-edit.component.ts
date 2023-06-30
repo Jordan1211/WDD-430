@@ -28,7 +28,11 @@ export class DocumentEditComponent implements OnInit {
         this.id = params['id'];
         if (!this.id) {
         this.editMode = false }
-        this.originalDocument = this.documentService.getDocument(this.id)
+
+        this.documentService.getDocument(this.id)
+        .subscribe(documentData => {
+          this.originalDocument = documentData.document;
+        });
 
         if (!this.originalDocument) {
           return
