@@ -33,4 +33,6 @@ export class MessageEditComponent implements OnInit{
     this.msgTextRef.nativeElement.value = '';
 
   }
+
+  
 }

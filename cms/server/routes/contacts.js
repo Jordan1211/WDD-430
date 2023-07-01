@@ -78,7 +78,7 @@ router.post('/', (req, res, next) => {
         contact.imageUrl = req.body.imageUrl,
         contact.group = req.body.group
   
-        DocumContactent.updateOne({ id: req.params.id }, contact)
+        Contact.updateOne({ id: req.params.id }, contact)
           .then(result => {
             res.status(204).json({
               message: 'Contact updated successfully'

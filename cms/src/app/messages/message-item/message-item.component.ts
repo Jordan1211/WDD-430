@@ -8,7 +8,6 @@ import { ContactService } from 'src/app/contacts/contact.service';
   templateUrl: './message-item.component.html',
   styleUrls: ['./message-item.component.css'],
 })
-
 @Injectable()
 export class MessageItemComponent implements OnInit {
   @Input() message: Message;
@@ -19,18 +18,16 @@ export class MessageItemComponent implements OnInit {
   ngOnInit() {
 
     let sender: string;
-if (typeof this.message.sender === 'string') {
-  sender = this.message.sender; // handle the string case
-} else {
-  sender = this.message.sender.id; // handle the Contact case
-}
+    if (typeof this.message?.sender === 'string') {
+      sender = this.message?.sender; 
+    } else {
+      sender = this.message?.sender.id;
+    }
 
-    this.contactService.getContact(sender)
-          .subscribe(contactData => {
-            const contact: Contact = contactData.contact;
+    this.contactService.getContact(sender).subscribe((contactData) => {
+      const contact: Contact = contactData.contact;
 
-            this.messageSender = contact.name;
-          });
-
+      this.messageSender = contact?.name;
+    });
   }
 }
