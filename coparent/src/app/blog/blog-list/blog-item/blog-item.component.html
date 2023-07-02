@@ -1,5 +1,4 @@
-<a class="list-group-item clearfix blogDiv"
-   routerLink="{{ blogpost.id }}"
-   routerLinkActive="active">
-  {{ blogpost.title | truncate }}
+<a class="list-group-item clearfix blogDiv" routerLink="{{ blogpost.id }}" routerLinkActive="active">
+  <div class="blogpost-title">{{ blogpost.title | truncate }}</div>
+  <div class="blogpost-author">{{ blogpost.author }}</div>
 </a>

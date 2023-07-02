@@ -64,7 +64,7 @@ export class BlogService {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     this.http.post<{ message: string, blogpost: Blogpost }>('http://localhost:3000/blogposts',
-      document,
+      blogpost,
       { headers: headers })
       .subscribe(
         (responseData) => {

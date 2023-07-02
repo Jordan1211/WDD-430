@@ -39,17 +39,17 @@ router.get('/', (req, res, next) => {
 
  
 router.post('/', (req, res, next) => {
-    const maxBlogId = sequenceGenerator.nextId("blog");
+    const maxBlogId = sequenceGenerator.nextId("blogpost");
   
-    const blog = new Blogpost({
+    const blogpost = new Blogpost({
       id: maxBlogId,
-      title: req.body.name,
-      iamgeUrl: req.body.url,
+      title: req.body.title,
+      imageUrl: req.body.imageUrl,
       description: req.body.description,
       author: req.body.author
     });
   
-    blog.save()
+    blogpost.save()
       .then(createdBlog => {
         res.status(201).json({
           message: 'Blog Post added successfully',
@@ -65,33 +65,31 @@ router.post('/', (req, res, next) => {
   });
 
   router.put('/:id', (req, res, next) => {
-    Blogpost.findOne({ id: req.params.id })
-      .then(blog => {
-        blog.title = req.body.title;
-        blog.imageUrl = req.body.imageUrl;
-        blog.description = req.body.description;
-        blog.author = req.body.author;
-  
-        Blogpost.updateOne({ id: req.params.id }, blog)
-          .then(result => {
-            res.status(204).json({
-              message: 'Blog Post updated successfully'
-            })
-          })
-          .catch(error => {
-             res.status(500).json({
-             message: 'An error occurred',
-             error: error
-           });
-          });
+    Blogpost.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          title: req.body.title,
+          imageUrl: req.body.imageUrl,
+          description: req.body.description,
+          author: req.body.author
+        }
+      },
+      { new: true } // Returns the updated document
+    )
+      .then(updatedBlogpost => {
+        res.status(200).json({
+          message: 'Blog Post updated successfully',
+          blogpost: updatedBlogpost
+        });
       })
       .catch(error => {
         res.status(500).json({
-          message: 'Blog Post not found.',
-          error: { blogpost: 'Blog Post not found'}
+          message: 'An error occurred',
+          error: error
         });
       });
-  });
+  });  
 
   router.delete("/:id", (req, res, next) => {
     Blogpost.findOne({ id: req.params.id })

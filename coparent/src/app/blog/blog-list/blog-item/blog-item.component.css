@@ -5,6 +5,18 @@
     font-size: 1rem;
     border: solid thin darkgrey;
     float: left;
-    padding: .5rem
+    padding: .5rem;
+    position: relative;
   }
+  
+  .blogpost-author {
+    position: absolute;
+    font-size: .75rem;
+    bottom: 0;
+    left: 0;
+    padding: .5rem;
+    /* font-style: italic; */
+    font-weight: bold;
+  }
+  
   

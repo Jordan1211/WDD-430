@@ -4,14 +4,30 @@
       <form id="document-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div class="row">
           <div class="col-sm-12 form-group">
-            <label for="name">Blog Post Title:</label>
+            <label for="author">Blog Post Author:</label>
             <input
               type="text"
-              id="name"
+              id="author"
               class="form-control"
               size="120"
               max="120"
-              name="name"
+              name="author"
+              [ngModel]= blogpost?.author
+              required
+              #name="ngModel" >
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="title">Blog Post Title:</label>
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              size="120"
+              max="120"
+              name="title"
               [ngModel]= blogpost?.title
               required
               #name="ngModel" >
@@ -34,18 +50,18 @@
   
         <div class="row">
           <div class="col-sm-12 form-group">
-            <label for="url">Blog Post Image URL:</label>
+            <label for="imageUrl">Blog Post Image URL:</label>
             <input
               type="text"
-              id="url"
+              id="imageUrl"
               class="form-control"
               size="150"
               max="255"
-              name="url"
+              name="imageUrl"
               [ngModel]= blogpost?.imageUrl
               required
-              #url="ngModel" >
-              <div class="alert alert-danger" *ngIf="!name.valid || !url.valid">
+              #imageUrl="ngModel" >
+              <div class="alert alert-danger" *ngIf="!name.valid || !imageUrl.valid">
                 The Blog Post Title and Blog Post Image URL are required fields.
               </div>
           </div>
