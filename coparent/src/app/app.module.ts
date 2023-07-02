@@ -13,6 +13,7 @@ import { BlogItemComponent } from './blog/blog-list/blog-item/blog-item.componen
 import { AppRoutingModule } from './app-routing.modules';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { BlogService } from './blog/blog.service';
+import { TruncatePipe } from './shared/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BlogService } from './blog/blog.service';
     BlogListComponent,
     BlogItemComponent,
     DropdownDirective,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

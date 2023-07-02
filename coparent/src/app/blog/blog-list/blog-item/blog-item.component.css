@@ -1,0 +1,10 @@
+.blogDiv {
+    width: 9rem;
+    height: 11rem;
+    margin: 2px;
+    font-size: 1rem;
+    border: solid thin darkgrey;
+    float: left;
+    padding: .5rem
+  }
+  

@@ -1,1 +1,17 @@
-<p>blog-list works!</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row pad-left-right">
+        <span class="pull-left title">Blog Posts</span>
+        <a class="btn btn-success pull-right" routerLink="new">Add Blog Post</a>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="center-panel">
+        <cpa-blog-item
+          *ngFor="let post of blogposts"
+          [blogpost] = "post"></cpa-blog-item>
+      </div>
+    </div>
+  
+  </div>
+  
