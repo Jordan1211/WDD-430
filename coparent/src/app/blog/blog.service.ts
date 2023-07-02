@@ -78,26 +78,29 @@ export class BlogService {
     if (!originalBlogpost || !newBlogpost) {
       return;
     }
-
+  
     const pos = this.blogposts.findIndex(d => d.id === originalBlogpost.id);
-
+  
     if (pos < 0) {
       return;
     }
-
-    newBlogpost.id = originalBlogpost.id;
-
+  
+    newBlogpost.id = originalBlogpost.id.toString(); // Convert id to string
+  
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-
+  
     this.http.put('http://localhost:3000/blogposts/' + originalBlogpost.id,
-    newBlogpost, { headers: headers })
+      newBlogpost, { headers: headers })
       .subscribe(
         (response: Response) => {
           this.blogposts[pos] = newBlogpost;
           this.sortAndSend();
+        },
+        (error: any) => {
+          console.log(error);
         }
       );
-  }
+  }  
 
   deleteBlogpost(blogpost: Blogpost) {
 

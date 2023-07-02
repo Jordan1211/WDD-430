@@ -64,32 +64,35 @@ router.post('/', (req, res, next) => {
       });
   });
 
+
   router.put('/:id', (req, res, next) => {
-    Blogpost.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: {
-          title: req.body.title,
-          imageUrl: req.body.imageUrl,
-          description: req.body.description,
-          author: req.body.author
-        }
-      },
-      { new: true } // Returns the updated document
-    )
-      .then(updatedBlogpost => {
-        res.status(200).json({
-          message: 'Blog Post updated successfully',
-          blogpost: updatedBlogpost
-        });
+    Blogpost.findOne({ id: req.params.id })
+      .then(blogpost => {
+        blogpost.title = req.body.title;
+        blogpost.imageUrl = req.body.imageUrl;
+        blogpost.description = req.body.description;
+        blogpost.author = req.body.author;
+
+        Blogpost.updateOne({ id: req.params.id }, blogpost)
+          .then(result => {
+            res.status(204).json({
+              message: 'Blog Post updated successfully'
+            })
+          })
+          .catch(error => {
+             res.status(500).json({
+             message: 'An error occurred',
+             error: error
+           });
+          });
       })
       .catch(error => {
         res.status(500).json({
-          message: 'An error occurred',
-          error: error
+          message: 'Blog Post not found.',
+          error: { blogpost: 'Blog Post not found'}
         });
       });
-  });  
+  });
 
   router.delete("/:id", (req, res, next) => {
     Blogpost.findOne({ id: req.params.id })
